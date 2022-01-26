@@ -1,0 +1,4 @@
+ [{"name": "Prime Chaotic Resonator", "exaltedValue": 0, "chaosValue": 30.0, "currType": "Chaos Orb"}]
+[{"name": "Powerful Chaotic Resonator", "exaltedValue": 0, "chaosValue": 1.0, "currType": "Chaos Orb"}]
+[{"name": "Potent Chaotic Resonator", "exaltedValue": 0, "chaosValue": 0.87, "currType": "Chaos Orb"}]
+[{"name": "Primitive Chaotic Resonator", "exaltedValue": 0, "chaosValue": 0.83, "currType": "Chaos Orb"}]
