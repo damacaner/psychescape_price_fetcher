@@ -2,8 +2,10 @@ import requests
 import urllib.request
 import json
 import os
+
 global chaos_ex_ratio
 import sys
+
 response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
 data = response_API.text
 parse_json = json.loads(data)
@@ -13,55 +15,61 @@ for i in parse_json["lines"]:
 '''
 Searches for items in data
 '''
+
+
 class SearchScarab(list):
 
-    def search(self,searchvar):
-      ## Change dir to where values lie ##
-      os.chdir(r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
-      ## Open the related value text file and read it
-      with open("scarab.txt","r") as f:
-          lines = f.readlines() ## Read all the lines
-      i = 0
-      for line in lines:
-          i += 1
-          item = line.strip() ## Strip \n from the lines
-          parsed = json.loads(item)[0] ## Load the i'th line with json
-          name_list = parsed["name"] ## Extract the name_list
-          if searchvar in name_list: ## If searched term is in searchvar go through
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          elif searchvar.title() in name_list:
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          else:
-            pass
+    def search(self, searchvar):
+        ## Change dir to where values lie ##
+        os.chdir(
+            r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+        ## Open the related value text file and read it
+        with open("scarab.txt", "r") as f:
+            lines = f.readlines()  ## Read all the lines
+        i = 0
+        for line in lines:
+            i += 1
+            item = line.strip()  ## Strip \n from the lines
+            parsed = json.loads(item)[0]  ## Load the i'th line with json
+            name_list = parsed["name"]  ## Extract the name_list
+            if searchvar in name_list:  ## If searched term is in searchvar go through
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            elif searchvar.title() in name_list:
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            else:
+                pass
+
 
 class ScarabValues:
     exportfunction = SearchScarab()
     '''
     Initialize class to store scarab values
     '''
-    def __init__(self, name=" ", exval=0, chval=0, curtype= " "):
+
+    def __init__(self, name=" ", exval=0, chval=0, curtype=" "):
         self.name = name
         self.exaltedValue = exval
         self.chaosValue = chval
         self.currType = curtype
+
     def Scarab_Values(self):
         '''
         Yeet the API request.
@@ -133,8 +141,11 @@ class ScarabValues:
         print("Imported every incubator value on poe.ninja to scarab.txt")
         print("Stored in ScarabValues class.")
 
+
 def main():
     print("Are you sure this is gonna be the main function?")
     sys.exit(0)
+
+
 if __name__ == "__main__":
-  main()
+    main()
