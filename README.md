@@ -26,9 +26,9 @@ options:
 
 Crafting and general is done, need to implement cluster jewel to unique items section, then I will implement the Atlas currencies. Data is the always longest and most boring section ever.
 
-(I only used requests library so dont just download the entire .venv folder, import requests on a fresh project yeet every file in the repo and you are good to go.)
-  
-  I dont know how Path of Exile API sends Helmet Enchants, Unique Maps and Maps. I will work on Unique things and maps after I get authorization from Path of Exile.
+When I finish working with poe.ninja, I will work with PoE's PSApi (Public Stash) but I am waiting for OAuth key for 4-5 days. They are giving me time to finish poe.ninja I assume lol.
+
+Also, university sucks.
   
  
 [![Psychescape](https://img.youtube.com/vi/b7JSv-36m68/0.jpg)](https://www.youtube.com/watch?v=b7JSv-36m68)
