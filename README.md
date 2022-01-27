@@ -26,7 +26,7 @@ options:
 
 Crafting,general and uniques are done! Fuck the unique flasks and prophecies! (they are gone anyways!)
 
-When I finish working with poe.ninja, I will work with PoE's PSApi (Public Stash) but I am waiting for OAuth key for 4-5 days.
+When I finish working with poe.ninja, I will work with PoE's PSApi (Public Stash) but I am waiting for OAuth key *since 4-5 days.
 
 Also, university sucks.
 
