@@ -24,11 +24,13 @@ options:
 
 ```
 
-Crafting and general is done, need to implement cluster jewel to unique items section, then I will implement the Atlas currencies. Data is the always longest and most boring section ever.
+Crafting,general and uniques are done! Fuck the unique flasks and prophecies! (they are gone anyways!)
 
-When I finish working with poe.ninja, I will work with PoE's PSApi (Public Stash) but I am waiting for OAuth key for 4-5 days. They are giving me time to finish poe.ninja I assume lol.
+When I finish working with poe.ninja, I will work with PoE's PSApi (Public Stash) but I am waiting for OAuth key for 4-5 days.
 
 Also, university sucks.
+
+And also, entire code is based on 2 loops only JSON's variable changes time to time. I wrote everything to seperate classes just to easily add some features in the future. How many times I said in the future? Okay three.
   
  
 [![Psychescape](https://img.youtube.com/vi/b7JSv-36m68/0.jpg)](https://www.youtube.com/watch?v=b7JSv-36m68)
