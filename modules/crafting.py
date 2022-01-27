@@ -3,11 +3,13 @@ import urllib.request
 import requests
 import json
 import os
+
 global chaos_ex_ratio
 import sys
 from os.path import exists
 from urllib.request import Request, urlopen, URLopener
 from PIL import Image
+
 '''
 CRAFTING ECONOMY
 CRAFTING
@@ -26,53 +28,57 @@ for i in parse_json["lines"]:
     if i["currencyTypeName"] == ("Exalted Orb"):
         chaos_ex_ratio = i["receive"]["value"]
 
+
 class SearchEssences(list):
 
-    def search(self,searchvar):
-      ## Change dir to where values lie ##
-      os.chdir(r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
-      ## Open the related value text file and read it
-      with open("essences.txt","r") as f:
-          lines = f.readlines() ## Read all the lines
-      i = 0
-      for line in lines:
-          i += 1
-          item = line.strip() ## Strip \n from the lines
-          parsed = json.loads(item)[0] ## Load the i'th line with json
-          name_list = parsed["name"] ## Extract the name_list
-          if searchvar in name_list: ## If searched term is in searchvar go through
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          elif searchvar.title() in name_list:
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          else:
-            pass
+    def search(self, searchvar):
+        ## Change dir to where values lie ##
+        os.chdir(
+            r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+        ## Open the related value text file and read it
+        with open("essences.txt", "r") as f:
+            lines = f.readlines()  ## Read all the lines
+        i = 0
+        for line in lines:
+            i += 1
+            item = line.strip()  ## Strip \n from the lines
+            parsed = json.loads(item)[0]  ## Load the i'th line with json
+            name_list = parsed["name"]  ## Extract the name_list
+            if searchvar in name_list:  ## If searched term is in searchvar go through
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            elif searchvar.title() in name_list:
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            else:
+                pass
 
 
 class EssenceValues:
     exportfunction = SearchEssences()
-    def __init__(self, name=" ", exval=0, chval=0, curtype= " "):
+
+    def __init__(self, name=" ", exval=0, chval=0, curtype=" "):
         self.name = name
         self.exaltedValue = exval
         self.chaosValue = chval
         self.currType = curtype
+
     def Essence_Values(self):
         response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Essence")
         data = response_API.text
@@ -83,7 +89,7 @@ class EssenceValues:
             file.write(" ")
         j = 0
         for i in parse_json["lines"]:
-            exportlist = [ ]
+            exportlist = []
             if (i["chaosValue"] > chaos_ex_ratio):
                 self.name = i["name"]
                 self.exaltedValue = i["exaltedValue"]
@@ -125,57 +131,62 @@ class EssenceValues:
                 file.write(str(result))
                 file.write("\n")
                 file.close()
+
     def Check_Incus(self):
         pass
-        #TODO Get every incubators on character's stash. PoE still didnt give me an authorization key.
+        # TODO Get every incubators on character's stash. PoE still didnt give me an authorization key.
+
 
 class SearchFossils(list):
 
-    def search(self,searchvar):
-      ## Change dir to where values lie ##
-      os.chdir(r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
-      ## Open the related value text file and read it
-      with open("fossils.txt","r") as f:
-          lines = f.readlines() ## Read all the lines
-      i = 0
-      for line in lines:
-          i += 1
-          item = line.strip() ## Strip \n from the lines
-          parsed = json.loads(item)[0] ## Load the i'th line with json
-          name_list = parsed["name"] ## Extract the name_list
-          if searchvar in name_list: ## If searched term is in searchvar go through
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          elif searchvar.title() in name_list:
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          else:
-            pass
+    def search(self, searchvar):
+        ## Change dir to where values lie ##
+        os.chdir(
+            r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+        ## Open the related value text file and read it
+        with open("fossils.txt", "r") as f:
+            lines = f.readlines()  ## Read all the lines
+        i = 0
+        for line in lines:
+            i += 1
+            item = line.strip()  ## Strip \n from the lines
+            parsed = json.loads(item)[0]  ## Load the i'th line with json
+            name_list = parsed["name"]  ## Extract the name_list
+            if searchvar in name_list:  ## If searched term is in searchvar go through
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            elif searchvar.title() in name_list:
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            else:
+                pass
 
 
 class FossilVals:
     exportfunction = SearchFossils()
-    def __init__(self, name=" ", exval=0, chval=0, curtype= " "):
+
+    def __init__(self, name=" ", exval=0, chval=0, curtype=" "):
         self.name = name
         self.exaltedValue = exval
         self.chaosValue = chval
         self.currType = curtype
+
     def Fossil_Values(self):
         response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Fossil")
         data = response_API.text
@@ -185,7 +196,7 @@ class FossilVals:
         with open("fossils.txt", "w") as file:
             file.write(" ")
         for i in parse_json["lines"]:
-            exportlist = [ ]
+            exportlist = []
             if (i["chaosValue"] > chaos_ex_ratio):
                 self.name = i["name"]
                 self.exaltedValue = i["exaltedValue"]
@@ -235,53 +246,57 @@ class FossilVals:
                 file.write("\n")
                 file.close()
 
+
 class SearchResonators(list):
 
-    def search(self,searchvar):
-      ## Change dir to where values lie ##
-      os.chdir(r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
-      ## Open the related value text file and read it
-      with open("resonators.txt","r") as f:
-          lines = f.readlines() ## Read all the lines
-      i = 0
-      for line in lines:
-          i += 1
-          item = line.strip() ## Strip \n from the lines
-          parsed = json.loads(item)[0] ## Load the i'th line with json
-          name_list = parsed["name"] ## Extract the name_list
-          if searchvar in name_list: ## If searched term is in searchvar go through
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          elif searchvar.title() in name_list:
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          else:
-            pass
+    def search(self, searchvar):
+        ## Change dir to where values lie ##
+        os.chdir(
+            r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+        ## Open the related value text file and read it
+        with open("resonators.txt", "r") as f:
+            lines = f.readlines()  ## Read all the lines
+        i = 0
+        for line in lines:
+            i += 1
+            item = line.strip()  ## Strip \n from the lines
+            parsed = json.loads(item)[0]  ## Load the i'th line with json
+            name_list = parsed["name"]  ## Extract the name_list
+            if searchvar in name_list:  ## If searched term is in searchvar go through
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            elif searchvar.title() in name_list:
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            else:
+                pass
 
 
 class ResoValues:
     exportfunction = SearchResonators()
-    def __init__(self, name=" ", exval=0, chval=0, curtype= " ", ):
+
+    def __init__(self, name=" ", exval=0, chval=0, curtype=" ", ):
         self.name = name
         self.exaltedValue = exval
         self.chaosValue = chval
         self.currType = curtype
+
     def Reso_Values(self):
         response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Resonator")
         data = response_API.text
@@ -292,7 +307,7 @@ class ResoValues:
             file.write(" ")
         j = 0
         for i in parse_json["lines"]:
-            exportlist = [ ]
+            exportlist = []
             if (i["chaosValue"] > chaos_ex_ratio):
                 self.name = i["name"]
                 self.exaltedValue = i["exaltedValue"]
@@ -335,53 +350,57 @@ class ResoValues:
                 file.write("\n")
                 file.close()
 
+
 class SearchBeast(list):
 
-    def search(self,searchvar):
-      ## Change dir to where values lie ##
-      os.chdir(r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
-      ## Open the related value text file and read it
-      with open("beast.txt","r") as f:
-          lines = f.readlines() ## Read all the lines
-      i = 0
-      for line in lines:
-          i += 1
-          item = line.strip() ## Strip \n from the lines
-          parsed = json.loads(item)[0] ## Load the i'th line with json
-          name_list = parsed["name"] ## Extract the name_list
-          if searchvar in name_list: ## If searched term is in searchvar go through
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          elif searchvar.title() in name_list:
-            name = parsed["name"]
-            exalted_value = parsed["exaltedValue"]
-            chaos_value = parsed["chaosValue"]
-            curr_type = parsed["currType"]
-            print("----------------")
-            print("We have found the >", name)
-            print("Exalted Orb Value >", exalted_value)
-            print("Chaos Orb Value >", chaos_value)
-            print("Currency Type >", curr_type)
-            return name, exalted_value, chaos_value, curr_type
-          else:
-            pass
+    def search(self, searchvar):
+        ## Change dir to where values lie ##
+        os.chdir(
+            r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+        ## Open the related value text file and read it
+        with open("beast.txt", "r") as f:
+            lines = f.readlines()  ## Read all the lines
+        i = 0
+        for line in lines:
+            i += 1
+            item = line.strip()  ## Strip \n from the lines
+            parsed = json.loads(item)[0]  ## Load the i'th line with json
+            name_list = parsed["name"]  ## Extract the name_list
+            if searchvar in name_list:  ## If searched term is in searchvar go through
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            elif searchvar.title() in name_list:
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            else:
+                pass
 
 
 class BeastValues:
     exportfunction = SearchResonators()
-    def __init__(self, name=" ", exval=0, chval=0, curtype= " "):
+
+    def __init__(self, name=" ", exval=0, chval=0, curtype=" "):
         self.name = name
         self.exaltedValue = exval
         self.chaosValue = chval
         self.currType = curtype
+
     def Beast_Values(self):
         response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Scourge&type=Beast&language=en")
         data = response_API.text
@@ -392,7 +411,7 @@ class BeastValues:
             file.write(" ")
         j = 0
         for i in parse_json["lines"]:
-            exportlist = [ ]
+            exportlist = []
             if (i["chaosValue"] > chaos_ex_ratio):
                 self.name = i["name"]
                 self.exaltedValue = i["exaltedValue"]
@@ -414,8 +433,11 @@ class BeastValues:
                 file.write("\n")
                 file.close()
 
+
 def main():
     print("Are you sure this is gonna be the main function?")
     sys.exit(0)
+
+
 if __name__ == "__main__":
- main()
+    main()
