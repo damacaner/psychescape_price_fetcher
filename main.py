@@ -227,6 +227,8 @@ def Unique_Fetch():
     f3.UniqueAccessory()
     f4 = uniques.UJewelValues()
     f4.UniqueJewel()
+    f5 = uniques.CLJewelValues()
+    f5.UniqueJewel()
 
 
 def LocateOnScreen(name):

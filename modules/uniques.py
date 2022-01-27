@@ -533,3 +533,111 @@ class UJewelValues():
                 file.write(str(result))
                 file.write("\n")
                 file.close()
+
+
+class CLJewelSearch(list):
+    def search(self, searchvar):
+        ## Change dir to where values lie ##
+        os.chdir(
+            r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+        ## Open the related value text file and read it
+        with open("clusters.txt", "r") as f:
+            lines = f.readlines()  ## Read all the lines
+        i = 0
+        for line in lines:
+            i += 1
+            item = line.strip()  ## Strip \n from the lines
+            parsed = json.loads(item)[0]  ## Load the i'th line with json
+            name_list = parsed["name"]  ## Extract the name_list
+            if searchvar in name_list:  ## If searched term is in searchvar go through
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                curr_type = parsed["currType"]
+                variant = parsed["variant"]
+                if "levelRequired" in parsed:
+                    lvlreq = parsed["levelRequired"]
+                else:
+                    lvlreq = 0
+                print("----------------")
+                print("We have found the >", name)
+                print("Variant >", variant)
+                print("Level Required to Wear >", lvlreq)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            elif searchvar.title() in name_list:
+                name = parsed["name"]
+                exalted_value = parsed["exaltedValue"]
+                chaos_value = parsed["chaosValue"]
+                variant = parsed["variant"]
+                if "levelRequired" in parsed:
+                    lvlreq = parsed["levelRequired"]
+                    curr_type = parsed["currType"]
+                else:
+                    lvlreq = 0
+                curr_type = parsed["currType"]
+                print("----------------")
+                print("We have found the >", name)
+                print("Variant >", variant)
+                print("Level Required to Wear >", lvlreq)
+                print("Exalted Orb Value >", exalted_value)
+                print("Chaos Orb Value >", chaos_value)
+                print("Currency Type >", curr_type)
+                return name
+            else:
+                pass
+
+
+class CLJewelValues():
+    exportfunction = CLJewelSearch()
+
+    def __init__(self, name=" ", lvlreq=0, chaosValue=0, exaltedValue=0, variant=" "):
+        self.name = name
+        self.lvlreq = lvlreq
+        self.variant = variant
+        self.chaosValue = chaosValue
+        self.exaltedValue = exaltedValue
+
+    def UniqueJewel(self):
+        raw_data = requests.get(
+            "https://poe.ninja/api/data/ItemOverview?league=Scourge&type=ClusterJewel&language=en")
+        os.chdir(
+            r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+        data = raw_data.text
+        data_json = json.loads(data)
+        with open("clusters.txt", "w") as f:
+            f.write(" ")
+        for i in data_json["lines"]:
+            exportlist = []
+            if (i["chaosValue"] > chaos_ex_ratio):
+                self.name = i["name"]
+                self.exaltedValue = i["exaltedValue"]
+                self.variant = i["variant"]
+                self.currType = "Exalted Orb"
+                self.chaosValue = 0
+                if "levelRequired" in i:
+                    self.lvlreq = i["levelRequired"]
+                else:
+                    self.lvlreq = 0
+                exportlist.append(self)
+                self.exportfunction.append(self)
+            else:
+                self.name = i["name"]
+                self.chaosValue = i["chaosValue"]
+                self.exaltedValue = 0
+                self.currType = "Chaos Orb"
+                if "levelRequired" in i:
+                    self.lvlreq = i["levelRequired"]
+                else:
+                    self.lvlreq = 0
+                exportlist.append(self)
+                self.exportfunction.append(self)
+            os.chdir(
+                r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+            result = json.dumps(exportlist, default=lambda o: o.__dict__)
+            with open("clusters.txt", "a") as file:
+                file.write(str(result))
+                file.write("\n")
+                file.close()
