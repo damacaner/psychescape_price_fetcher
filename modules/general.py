@@ -38,7 +38,7 @@ class SearchRatio(list):
             item = line.strip()  ## Strip \n from the lines
             parsed = json.loads(item)[0]  ## Load the i'th line with json
             name_list = parsed["name"]  ## Extract the name_list
-            if searchvar in name_list:  ## If searched term is in searchvar go through
+            if searchvar == name_list:  ## If searched term is in searchvar go through
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
                 chaos_value = parsed["chaosValue"]
@@ -48,6 +48,7 @@ class SearchRatio(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -58,6 +59,7 @@ class SearchRatio(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
+                return exalted_value, chaos_value, curr_type
 
 
 class CurrencyRatios:
@@ -127,6 +129,7 @@ class SearchFrags(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -137,6 +140,7 @@ class SearchFrags(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
+                return exalted_value, chaos_value, curr_type
 
 
 class FragmentValues:
