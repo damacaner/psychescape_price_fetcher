@@ -14,15 +14,18 @@ Current features: (  Additional informations are also fetched if necessary on pr
 
 options:
 ```
-  options:
+ options:
   -h, --help            show this help message and exit
   -fa, --fetchall       Fetch everything listed on poe.ninja
   -search, --search     Search the item on values folder
+  -sids, --sids         Fetch stash IDs on temporary league
+  -sincludes,--sinclude Fetch stash items with stash IDs on temporary league
   -general, --general   Fetch all general values
   -crafting, --crafting Fetch all crafting values
   -unique, --unique     Fetch all unique item values
   -scarab, --scarab     Fetch scarab prices
   -sg, --skillgem       Fetch skill gem prices
+
 
 ```
 
