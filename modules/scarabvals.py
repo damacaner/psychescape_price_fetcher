@@ -42,7 +42,7 @@ class SearchScarab(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -53,7 +53,7 @@ class SearchScarab(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 

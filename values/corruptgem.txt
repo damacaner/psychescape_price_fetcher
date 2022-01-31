@@ -1,0 +1,5 @@
+ [{"name": "Tornado Shot", "exaltedValue": 0, "chaosValue": 40.0, "currType": " ", "gemlvl": 21, "gemqual": 20, "corrupted": true}]
+[{"name": "Tornado Shot", "exaltedValue": 0, "chaosValue": 35.81, "currType": " ", "gemlvl": 20, "gemqual": 23, "corrupted": true}]
+[{"name": "Tornado Shot", "exaltedValue": 0, "chaosValue": 10.0, "currType": " ", "gemlvl": 20, "gemqual": 20, "corrupted": true}]
+[{"name": "Tornado Shot", "exaltedValue": 0, "chaosValue": 5.0, "currType": " ", "gemlvl": 21, "gemqual": 20, "corrupted": true}]
+[{"name": "Tornado Shot", "exaltedValue": 0, "chaosValue": 2.02, "currType": " ", "gemlvl": 20, "gemqual": 20, "corrupted": true}]

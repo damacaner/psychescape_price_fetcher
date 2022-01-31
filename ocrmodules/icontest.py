@@ -24,12 +24,30 @@ class SearchOnScreen():
     def Search(self, name):
         os.chdir(folder)
         print("----------------")
-        itemlocation = pyautogui.locateOnScreen((name + ".jpg"), confidence=0.65)
+        y = "essence"
+        if y in name or y.title() in name:
+            itemlocation = pyautogui.locateOnScreen((name + ".jpg"), confidence=0.75)
+            print("Location of the item on your stash >", itemlocation)
+        else:
+            itemlocation = pyautogui.locateOnScreen((name + ".jpg"), confidence=0.65)
+            print("Location of the item on your stash >", itemlocation)
+        return itemlocation
+
+
+class MoveMouse():
+    def Move(self, itemlocation,quantity = None):
         print("Yeeting the mouse to the item location...")
         pyautogui.moveTo(itemlocation)
-        print("Location of the item on your stash >", itemlocation)
+        print("Checking if buyer wants multiple quantities...")
+        if quantity == None:
+            print("Yeeting item right to your inventory...")
+            with pyautogui.hold("ctrl"):
+                pyautogui.leftClick(itemlocation)
+        if quantity != None:
+            with pyautogui.hold("shift"):
+                pyautogui.leftClick(itemlocation)
 
-
+'''
 def main():
     print("Are you sure this is gonna be the main function?")
     sys.exit(0)
@@ -37,3 +55,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''

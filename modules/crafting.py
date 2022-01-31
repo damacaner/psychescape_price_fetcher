@@ -53,8 +53,8 @@ class SearchEssences(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -64,8 +64,8 @@ class SearchEssences(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -162,7 +162,7 @@ class SearchFossils(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -173,7 +173,7 @@ class SearchFossils(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -272,7 +272,7 @@ class SearchResonators(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -283,7 +283,7 @@ class SearchResonators(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -376,7 +376,7 @@ class SearchBeast(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -387,7 +387,7 @@ class SearchBeast(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 

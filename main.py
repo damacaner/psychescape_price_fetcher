@@ -211,12 +211,13 @@ def Unique_Search(name):
             unique.search(name)
         else:
             pass
-    with open("uniqueaccessory.txt","w") as file:
+    with open("uniqueaccessory.txt", "w") as file:
         if name in file:
             unique = uniques.UAccessorySearch()
             unique.search(name)
         else:
             pass
+
 
 def Unique_Fetch():
     f1 = uniques.UArmourValues()
@@ -227,6 +228,8 @@ def Unique_Fetch():
     f3.UniqueAccessory()
     f4 = uniques.UJewelValues()
     f4.UniqueJewel()
+    f5 = uniques.CLJewelValues()
+    f5.UniqueJewel()
 
 
 def LocateOnScreen(name):
@@ -246,7 +249,7 @@ if __name__ == "__main__":
     parser.add_argument("-search", "--search", action="store_true", help="Search the item on values folder")
     parser.add_argument("-general", "--general", action="store_true", help="Fetch all general values")
     parser.add_argument("-crafting", "--crafting", action="store_true", help="Fetch all crafting values")
-    parser.add_argument("-unique","--unique", action="store_true", help="Fetch all unique item values")
+    parser.add_argument("-unique", "--unique", action="store_true", help="Fetch all unique item values")
     parser.add_argument("-scarab", "--scarab", action="store_true", help="Fetch scarab prices")
     parser.add_argument("-sg", "--skillgem", action="store_true", help="Fetch skill gem prices")
     args = parser.parse_args()
@@ -286,9 +289,6 @@ if search_func_ == True:
         gemqual = input()
         SkillGem_Search(name, gemlvl, gemqual)
     x = Navigator(var, name)
-    y = x.replace(" ", "_")
-    LocateOnScreen(y)
-    # LocateOnScreen(name)
 if general_ == True:
     print("Fetching currency values...")
     Currency_Ratios()
