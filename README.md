@@ -10,6 +10,8 @@ Current features: (  Additional informations are also fetched if necessary on pr
 
 3 - Search item values from names
 
+4 - Fetch entire stash tab ID's in the temporary league, fetch items in that tabs and price them by searching from values that we got from third feature. I know there is a lot of Unknown's there, I didnt implement Atlas items yet and I am dumb enough to think an algorithm for rare item pricing. My last 2 brain cells already done a fuckton.
+
 options:
 ```
   options:
