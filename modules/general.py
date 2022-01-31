@@ -205,8 +205,8 @@ class SearchOil(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name, exalted_value, chaos_value, curr_type
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -216,8 +216,8 @@ class SearchOil(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name, exalted_value, chaos_value, curr_type
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -315,8 +315,8 @@ class SearchIncus(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -326,8 +326,8 @@ class SearchIncus(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -419,8 +419,8 @@ class ArtifactSearch(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -430,8 +430,8 @@ class ArtifactSearch(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -512,8 +512,8 @@ class DivSearch(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -523,8 +523,8 @@ class DivSearch(list):
                 print("We have found the >", name)
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
-                print("Currency Type >", curr_type)
-                return name
+                print("Currency Type >", curr_type.lower())
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 

@@ -182,7 +182,7 @@ class UArmourSearch(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -201,7 +201,7 @@ class UArmourSearch(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -316,7 +316,7 @@ class UAccessorySearch(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -333,7 +333,7 @@ class UAccessorySearch(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -440,7 +440,7 @@ class UJewelSearch(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
@@ -457,7 +457,7 @@ class UJewelSearch(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -641,3 +641,11 @@ class CLJewelValues():
                 file.write(str(result))
                 file.write("\n")
                 file.close()
+
+def main():
+    print("Are you sure this is gonna be the main function?")
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
