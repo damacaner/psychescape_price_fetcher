@@ -2,8 +2,8 @@ import requests
 import json
 headers = {
     "User-Agent": "Mozilla/5.0",
-    "Authorization": "censored for github",
-    "Cookie": "censored for github"
+    "Authorization": "censor",
+    "Cookie": "censor"
 }
 class StashIDFetch():
     def __init__(self,id = " ", name = " "):
