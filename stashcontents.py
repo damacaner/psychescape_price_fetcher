@@ -1,17 +1,19 @@
 import requests
 import json
 import os
-from modules import scarabvals, skillgems, general, crafting, uniques
+from modules import scarabvals, skillgems, general, crafting, uniques, atlas
 from poemodules import stashid
 headers = {
     "User-Agent": "Mozilla/5.0",
-    "Authorization": "Censored till I learn .gitignore",
-    "Cookie": "Same as above"
+    "Authorization": "censored for github",
+    "Cookie": "censored for github"
 }
 
 
 class GetStash():
-    def __init__(self, stackSize=0, note=" ", x=" ", y=" ", inventoryId=" ", typeline=" ", sglvl="", sgqual=" "):
+    def __init__(self, stackSize=0, note=" ", x=" ", y=" ",
+                 inventoryId=" ", typeline=" ", sglvl="", sgqual=" ",
+                 mapTier = 0):
         self.stacksize = stackSize
         self.note = note
         self.x = x
@@ -20,7 +22,7 @@ class GetStash():
         self.typeLine = typeline
         self.sglvl = sglvl
         self.sgqual = sgqual
-
+        self.maptier = mapTier
     def StashNotes(self):
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\poemodules")
@@ -46,11 +48,14 @@ class GetStash():
                             for z in j["properties"]:
                                 if z["name"] == "Level":
                                     self.sglvl = (z["values"][0][0])
-                                if z["name"] == "Quality":
+                                elif z["name"] == "Quality":
                                     self.sgqual = (z["values"][0][0])
+                                elif z["name"] == "Map Tier":
+                                    self.maptier = (z["values"][0][0])
                         else:
                             self.sglvl = None
                             self.sgqual = None
+                            self.maptier = None
                         exportlist = []
                         os.chdir(
                             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\stashvalues")
@@ -64,7 +69,7 @@ class GetStash():
                             print(searchvar)
                             search = SearchUnknown()
                             if self.sgqual == None:
-                                returnoutput = search.Search(searchvar, self.sglvl, 0)
+                                returnoutput = search.Search(searchvar, self.sglvl, 0, self.maptier)
                                 if returnoutput == None:
                                     self.note = "Unknown"
                                 else:
@@ -78,7 +83,7 @@ class GetStash():
                                         print(conc)
                                         self.note = conc
                             else:
-                                returnoutput = search.Search(searchvar, self.sglvl, self.sgqual)
+                                returnoutput = search.Search(searchvar, self.sglvl, self.sgqual, self.maptier)
                                 if returnoutput == None:
                                     self.note = "Unknown"
                                 else:
@@ -117,7 +122,7 @@ BE WARY
 
 
 class SearchUnknown():
-    def Search(self, searchvar, gemlvl, gemqual):
+    def Search(self, searchvar, gemlvl, gemqual,maptier):
         ## First iteration
         search = scarabvals.SearchScarab()
         returnoutput = search.search(searchvar)
@@ -177,7 +182,25 @@ class SearchUnknown():
                                                                   search = general.SearchRatio()
                                                                   returnoutput = search.search(searchvar)
                                                                   if returnoutput is None:
-                                                                     pass
+                                                                       search = atlas.SearchMap()
+                                                                       returnoutput = search.search(searchvar,maptier)
+                                                                       if returnoutput is None:
+                                                                          search = atlas.BlightedMapSearch()
+                                                                          returnoutput = search.search(searchvar,maptier)
+                                                                          if returnoutput is None:
+                                                                              search = atlas.UniqueMapSearch()
+                                                                              returnoutput = search.search(searchvar,maptier)
+                                                                              if returnoutput is None:
+                                                                                 pass
+                                                                              else:
+                                                                                  exval, chval, currtype = returnoutput
+                                                                                  return exval, chval, currtype
+                                                                          else:
+                                                                              exval, chval, currtype = returnoutput
+                                                                              return exval, chval, currtype
+                                                                       else:
+                                                                           exval, chval, currtype = returnoutput
+                                                                           return exval, chval, currtype
                                                                   else:
                                                                       exval, chval, currtype = returnoutput
                                                                       return exval, chval, currtype

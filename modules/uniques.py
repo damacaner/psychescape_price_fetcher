@@ -465,12 +465,12 @@ class UJewelSearch(list):
 class UJewelValues():
     exportfunction = UJewelSearch()
 
-    def __init__(self, name=" ", lvlreq=0, chaosValue=0, exaltedValue=0, ):
+    def __init__(self, name=" ", lvlreq=0, chaosValue=0, exaltedValue=0, variant = " " ):
         self.name = name
         self.lvlreq = lvlreq
         self.chaosValue = chaosValue
         self.exaltedValue = exaltedValue
-
+        self.variant = variant
     def UniqueJewel(self):
         raw_data = requests.get(
             "https://poe.ninja/api/data/ItemOverview?league=Scourge&type=UniqueJewel&language=en")
@@ -491,6 +491,10 @@ class UJewelValues():
                     self.lvlreq = i["levelRequired"]
                 else:
                     self.lvlreq = 0
+                if "variant" in i:
+                    self.variant = i["variant"]
+                else:
+                    self.variant = " "
                 exportlist.append(self)
                 self.exportfunction.append(self)
                 os.chdir(
@@ -513,6 +517,10 @@ class UJewelValues():
                     self.lvlreq = i["levelRequired"]
                 else:
                     self.lvlreq = 0
+                if "variant" in i:
+                    self.variant = i["variant"]
+                else:
+                    self.variant = " "
                 exportlist.append(self)
                 self.exportfunction.append(self)
                 os.chdir(
