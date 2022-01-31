@@ -5,7 +5,8 @@ import sys
 from modules import scarabvals, skillgems, general, crafting, uniques
 from ocrmodules import icontest
 from os.path import dirname, basename, isfile, join
-
+import stashcontents
+from poemodules import stashid
 ## Exit from the program if len(sys.argv) is 1.
 if len(sys.argv) == 1:
     sys.exit()
@@ -247,6 +248,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fetch prices from poe.ninja")
     parser.add_argument("-fa", "--fetchall", action="store_true", help="Fetch everything listed on poe.ninja")
     parser.add_argument("-search", "--search", action="store_true", help="Search the item on values folder")
+    parser.add_argument("-sids", "--sids", action="store_true", help="Fetch stash IDs on temporary league")
+    parser.add_argument("-sincludes", "--sincludes", action="store_true", help="Fetch stash items with stash IDs on temporary league")
     parser.add_argument("-general", "--general", action="store_true", help="Fetch all general values")
     parser.add_argument("-crafting", "--crafting", action="store_true", help="Fetch all crafting values")
     parser.add_argument("-unique", "--unique", action="store_true", help="Fetch all unique item values")
@@ -259,6 +262,8 @@ if __name__ == "__main__":
         sys.exit()
 
 general_ = args.general
+sids_ = args.sids
+sincludes_ = args.sincludes
 crafting_ = args.crafting
 skillgem_fetch_ = args.skillgem
 scarab_fetch_ = args.scarab
@@ -289,6 +294,13 @@ if search_func_ == True:
         gemqual = input()
         SkillGem_Search(name, gemlvl, gemqual)
     x = Navigator(var, name)
+
+if sincludes_ == True:
+    yarram = stashcontents.GetStash()
+    yarram.StashNotes()
+if sids_ == True:
+    yarram = stashid.StashIDFetch()
+    yarram.StashID()
 if general_ == True:
     print("Fetching currency values...")
     Currency_Ratios()
