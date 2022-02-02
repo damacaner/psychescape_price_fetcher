@@ -7,8 +7,7 @@ from ratelimit import limits, RateLimitException, sleep_and_retry
 max_hit = 15
 period = 30
 headers = {
-    "CENSORED FOR GITHUB"
-    "CONTACT ME FOR API IF YOU REALLY WANT TO USE THIS PILE OF MESS"
+    "censor"
 }
 class StashIDFetch():
     def __init__(self,id = " ", name = " ", index=0):
