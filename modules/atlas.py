@@ -3,7 +3,7 @@ import requests
 import os
 global chaos_ex_ratio
 import urllib.request
-response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
+response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency")
 data = response_API.text
 parse_json = json.loads(data)
 for i in parse_json["lines"]:
@@ -56,7 +56,7 @@ class MapValues:
         self.currType = curtype
         self.mapTier = mapTier
     def Map_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Scourge&type=Map&language=en")
+        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Standard&type=Map&language=en")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -159,7 +159,7 @@ class BlightedMapValues:
         self.currType = curtype
         self.mapTier = mapTier
     def BlightedMap_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Scourge&type=BlightedMap&language=en")
+        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Standard&type=BlightedMap&language=en")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -261,7 +261,7 @@ class UniqueMapValues:
         self.currType = curtype
         self.mapTier = mapTier
     def UniqueMap_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Scourge&type=UniqueMap&language=en")
+        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Standard&type=UniqueMap&language=en")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -313,6 +313,104 @@ class UniqueMapValues:
                 r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
             result = json.dumps(exportlist, default=lambda o: o.__dict__)
             with open("uniquemaps.txt", "a") as file:
+                file.write(str(result))
+                file.write("\n")
+                file.close()
+class InvitationSearch(list):
+        def search(self, searchvar):
+            os.chdir(
+                r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+            with open("maveninvitations.txt", "r") as f:
+                lines = f.readlines()
+            i = 0
+            for line in lines:
+                i += 1
+                item = line.strip()
+                parsed = json.loads(item)[0]
+                name_list = parsed["name"]
+                if (searchvar == name_list):
+                    name = parsed["name"]
+                    exalted_value = parsed["exaltedValue"]
+                    chaos_value = parsed["chaosValue"]
+                    curr_type = parsed["currType"]
+                    print("----------------")
+                    print("We have found the >", name)
+                    print("Exalted Orb Value >", exalted_value)
+                    print("Chaos Orb Value >", chaos_value)
+                    print("Currency Type >", curr_type.lower())
+                    return exalted_value, chaos_value, curr_type
+                elif searchvar.title() in name_list:
+                    name = parsed["name"]
+                    exalted_value = parsed["exaltedValue"]
+                    chaos_value = parsed["chaosValue"]
+                    curr_type = parsed["currType"]
+                    print("----------------")
+                    print("We have found the >", name)
+                    print("Exalted Orb Value >", exalted_value)
+                    print("Chaos Orb Value >", chaos_value)
+                    print("Currency Type >", curr_type.lower())
+                    return exalted_value, chaos_value, curr_type
+                else:
+                    pass
+class InvitationValues():
+    exportfunction = InvitationSearch()
+    def __init__(self, name=" ", exval=0, chval=0, curtype=" "):
+        self.name = name
+        self.exaltedValue = exval
+        self.chaosValue = chval
+        self.currType = curtype
+
+    def Invitation_Values(self):
+        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Standard&type=Invitation&language=en")
+        data = response_API.text
+        os.chdir(
+            r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+        parse_json = json.loads(data)
+        with open("maveninvitations.txt", "w") as file:
+            file.write(" ")
+        j = 0
+        for i in parse_json["lines"]:
+            exportlist = []
+            if (i["chaosValue"] > chaos_ex_ratio):
+                self.name = i["name"]
+                self.exaltedValue = i["exaltedValue"]
+                self.currType = "Exalted Orb"
+                exportlist.append(self)
+                self.chaosValue = 0
+                self.exportfunction.append(self)
+                os.chdir(
+                    r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\icons")
+                img_name = (i["name"] + ".jpg")
+                file_exists = os.path.exists(img_name)
+                if file_exists == True:
+                    pass
+                else:
+                    opener = urllib.request.build_opener()
+                    opener.addheaders = [('User-Agent', 'Mozilla/5.0')]
+                    urllib.request.install_opener(opener)
+                    urllib.request.urlretrieve(i["icon"], img_name)
+            else:
+                self.name = i["name"]
+                self.chaosValue = i["chaosValue"]
+                self.currType = "Chaos Orb"
+                self.exaltedValue = 0
+                exportlist.append(self)
+                self.exportfunction.append(self)
+                os.chdir(
+                    r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\icons")
+                img_name = (i["name"] + ".jpg")
+                file_exists = os.path.exists(img_name)
+                if file_exists == True:
+                    pass
+                else:
+                    opener = urllib.request.build_opener()
+                    opener.addheaders = [('User-Agent', 'Mozilla/5.0')]
+                    urllib.request.install_opener(opener)
+                    urllib.request.urlretrieve(i["icon"], img_name)
+            os.chdir(
+                r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
+            result = json.dumps(exportlist, default=lambda o: o.__dict__)
+            with open("maveninvitations.txt", "a") as file:
                 file.write(str(result))
                 file.write("\n")
                 file.close()

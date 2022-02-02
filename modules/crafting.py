@@ -21,7 +21,7 @@ Beasts
 Essences
 Vials
 '''
-response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
+response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency")
 data = response_API.text
 parse_json = json.loads(data)
 for i in parse_json["lines"]:
@@ -80,7 +80,7 @@ class EssenceValues:
         self.currType = curtype
 
     def Essence_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Essence")
+        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Standard&type=Essence")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -188,7 +188,7 @@ class FossilVals:
         self.currType = curtype
 
     def Fossil_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Fossil")
+        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Standard&type=Fossil")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -298,7 +298,7 @@ class ResoValues:
         self.currType = curtype
 
     def Reso_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Resonator")
+        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Standard&type=Resonator")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -402,7 +402,7 @@ class BeastValues:
         self.currType = curtype
 
     def Beast_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Scourge&type=Beast&language=en")
+        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Standard&type=Beast&language=en")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")

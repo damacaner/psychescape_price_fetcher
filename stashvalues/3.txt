@@ -1,0 +1,7 @@
+ [{"stacksize": 0, "note": "Unknown", "x": 0, "y": 2, "inventoryID": "Stash1", "typeLine": "Full Leather", "sglvl": null, "sgqual": "+20%", "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 5, "y": 5, "inventoryID": "Stash1", "typeLine": "Ringmail Gloves", "sglvl": null, "sgqual": "+20%", "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 11, "y": 10, "inventoryID": "Stash1", "typeLine": "Simmering Colossal Life Flask of the Crystal", "sglvl": null, "sgqual": "+20%", "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 1, "y": 9, "inventoryID": "Stash1", "typeLine": "Wild Leather", "sglvl": null, "sgqual": "+20%", "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 2, "y": 0, "inventoryID": "Stash1", "typeLine": "Reinforced Tower Shield", "sglvl": null, "sgqual": "+20%", "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 10, "y": 7, "inventoryID": "Stash1", "typeLine": "Medium Life Flask", "sglvl": null, "sgqual": "+20%", "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 0, "y": 0, "inventoryID": "Stash1", "typeLine": "Embroidered Gloves", "sglvl": null, "sgqual": "+20%", "maptier": null}]

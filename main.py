@@ -12,7 +12,7 @@ if len(sys.argv) == 1:
     sys.exit()
 ## Get Chaos to Ex ratio first
 global chaos_ex_ratio
-response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
+response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency")
 data = response_API.text
 parse_json = json.loads(data)
 for i in parse_json["lines"]:

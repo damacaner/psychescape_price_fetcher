@@ -6,7 +6,7 @@ import os
 global chaos_ex_ratio
 import sys
 
-response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
+response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency")
 data = response_API.text
 parse_json = json.loads(data)
 for i in parse_json["lines"]:
@@ -74,7 +74,7 @@ class ScarabValues:
         '''
         Yeet the API request.
         '''
-        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Scarab")
+        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Standard&type=Scarab")
         data = response_API.text
         '''
         Change directory to wherever values lie.

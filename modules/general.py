@@ -16,7 +16,7 @@ Prophecies
 Oils
 '''
 
-response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
+response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency")
 data = response_API.text
 parse_json = json.loads(data)
 for i in parse_json["lines"]:
@@ -49,7 +49,7 @@ class SearchRatio(list):
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
                 return exalted_value, chaos_value, curr_type
-            elif searchvar.title() in name_list:
+            elif searchvar.title() == name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
                 chaos_value = parsed["chaosValue"]
@@ -72,7 +72,7 @@ class CurrencyRatios:
         self.currType = curtype
 
     def Ratios(self):
-        response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
+        response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency")
         data = response_API.text
         parsed_data = json.loads(data)
         os.chdir(
@@ -153,7 +153,7 @@ class FragmentValues:
         self.currType = curtype
 
     def Ratios(self):
-        response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Fragment")
+        response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Fragment")
         data = response_API.text
         parsed_data = json.loads(data)
         os.chdir(
@@ -236,7 +236,7 @@ class OilValues:
         self.currType = curtype
 
     def Oil_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Oil")
+        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Standard&type=Oil")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -346,7 +346,7 @@ class IncuValues:
         self.currType = curtype
 
     def Incubator_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=Incubator")
+        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Standard&type=Incubator")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -450,7 +450,7 @@ class ArtifactValues:
         self.currType = curtype
 
     def Artifact_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Scourge&type=Artifact&language=en")
+        response_API = requests.get("https://poe.ninja/api/data/ItemOverview?league=Standard&type=Artifact&language=en")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
@@ -544,7 +544,7 @@ class DivValues:
 
     def Div_Values(self):
         response_API = requests.get(
-            "https://poe.ninja/api/data/ItemOverview?league=Scourge&type=DivinationCard&language=en")
+            "https://poe.ninja/api/data/ItemOverview?league=Standard&type=DivinationCard&language=en")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")

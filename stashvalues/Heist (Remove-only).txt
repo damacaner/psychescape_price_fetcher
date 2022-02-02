@@ -1,0 +1,1 @@
+ [{"stacksize": 0, "note": "Unknown", "x": 6, "y": 4, "inventoryID": "Stash1", "typeLine": "Silver Brooch", "sglvl": null, "sgqual": null, "maptier": null}]

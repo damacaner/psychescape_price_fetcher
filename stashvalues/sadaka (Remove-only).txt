@@ -1,0 +1,8 @@
+ [{"stacksize": 0, "note": "~price 30 chaos", "x": 0, "y": 1, "inventoryID": "Stash1", "typeLine": "Exotic Platinum Valdo's Rest Watchstone of Divination", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "~price 5 chaos", "x": 1, "y": 0, "inventoryID": "Stash1", "typeLine": "Saqawal, First of the Sky", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 0, "y": 0, "inventoryID": "Stash1", "typeLine": "Onyx Amulet", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "~price 2 chaos", "x": 0, "y": 5, "inventoryID": "Stash1", "typeLine": "A Master Seeks Help", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "~price 2 chaos", "x": 0, "y": 4, "inventoryID": "Stash1", "typeLine": "A Master Seeks Help", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "~price 1 chaos", "x": 0, "y": 3, "inventoryID": "Stash1", "typeLine": "A Master Seeks Help", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "~price 2 chaos", "x": 0, "y": 7, "inventoryID": "Stash1", "typeLine": "Fire and Ice", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "~price 1 chaos", "x": 0, "y": 2, "inventoryID": "Stash1", "typeLine": "A Master Seeks Help", "sglvl": null, "sgqual": null, "maptier": null}]

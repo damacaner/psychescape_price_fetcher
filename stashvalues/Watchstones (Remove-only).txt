@@ -1,0 +1,8 @@
+ [{"stacksize": 0, "note": "Unknown", "x": 0, "y": 0, "inventoryID": "Stash1", "typeLine": "Chromium Valdo's Rest Watchstone of the Weaponsmith", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 1, "y": 0, "inventoryID": "Stash1", "typeLine": "Imposing Aristocrat's Chromium Valdo's Rest Watchstone of Treacherous Realms", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 2, "y": 0, "inventoryID": "Stash1", "typeLine": "Simple Guard's Chromium Valdo's Rest Watchstone", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 3, "y": 0, "inventoryID": "Stash1", "typeLine": "Marceus' Platinum Glennach Cairns Watchstone of the Weaponsmith", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 4, "y": 0, "inventoryID": "Stash1", "typeLine": "Imposing Aristocrat's Chromium Haewark Hamlet Watchstone of the Masses", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 5, "y": 0, "inventoryID": "Stash1", "typeLine": "Influenced Aristocrat's Chromium Haewark Hamlet Watchstone of Treacherous Realms", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 6, "y": 0, "inventoryID": "Stash1", "typeLine": "Imposing Aristocrat's Chromium Lira Arthain Watchstone of Strange Horizons", "sglvl": null, "sgqual": null, "maptier": null}]
+[{"stacksize": 0, "note": "Unknown", "x": 7, "y": 0, "inventoryID": "Stash1", "typeLine": "Simple Thaumaturge's Chromium Lira Arthain Watchstone", "sglvl": null, "sgqual": null, "maptier": null}]
