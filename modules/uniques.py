@@ -7,7 +7,7 @@ import os
 global chaos_ex_ratio
 import sys
 
-response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
+response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency")
 data = response_API.text
 parse_json = json.loads(data)
 for i in parse_json["lines"]:
@@ -34,9 +34,9 @@ class UWeaponSearch(list):
                 exalted_value = parsed["exaltedValue"]
                 chaos_value = parsed["chaosValue"]
                 links = parsed["links"]
+                curr_type = parsed["currType"]
                 if "levelRequired" in parsed:
                     lvlreq = parsed["levelRequired"]
-                    curr_type = parsed["currType"]
                 else:
                     lvlreq = 0
                 print("----------------")
@@ -46,15 +46,15 @@ class UWeaponSearch(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             elif searchvar.title() in name_list:
                 name = parsed["name"]
                 exalted_value = parsed["exaltedValue"]
                 chaos_value = parsed["chaosValue"]
                 links = parsed["links"]
+                curr_type = parsed["currType"]
                 if "levelRequired" in parsed:
                     lvlreq = parsed["levelRequired"]
-                    curr_type = parsed["currType"]
                 else:
                     lvlreq = 0
                 curr_type = parsed["currType"]
@@ -65,7 +65,7 @@ class UWeaponSearch(list):
                 print("Exalted Orb Value >", exalted_value)
                 print("Chaos Orb Value >", chaos_value)
                 print("Currency Type >", curr_type)
-                return name
+                return exalted_value, chaos_value, curr_type
             else:
                 pass
 
@@ -81,7 +81,7 @@ class UWeaponValues():
         self.exaltedValue = exaltedValue
 
     def UniqueWeapons(self):
-        raw_data = requests.get("https://poe.ninja/api/data/ItemOverview?league=Scourge&type=UniqueWeapon&language=en")
+        raw_data = requests.get("https://poe.ninja/api/data/ItemOverview?league=Standard&type=UniqueWeapon&language=en")
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
         data = raw_data.text
@@ -217,7 +217,7 @@ class UArmourValues():
         self.exaltedValue = exaltedValue
 
     def UniqueArmours(self):
-        raw_data = requests.get("https://poe.ninja/api/data/ItemOverview?league=Scourge&type=UniqueArmour&language=en")
+        raw_data = requests.get("https://poe.ninja/api/data/ItemOverview?league=Standard&type=UniqueArmour&language=en")
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
         data = raw_data.text
@@ -349,7 +349,7 @@ class UAccessoryValues():
 
     def UniqueAccessory(self):
         raw_data = requests.get(
-            "https://poe.ninja/api/data/ItemOverview?league=Scourge&type=UniqueAccessory&language=en")
+            "https://poe.ninja/api/data/ItemOverview?league=Standard&type=UniqueAccessory&language=en")
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
         data = raw_data.text
@@ -473,7 +473,7 @@ class UJewelValues():
         self.variant = variant
     def UniqueJewel(self):
         raw_data = requests.get(
-            "https://poe.ninja/api/data/ItemOverview?league=Scourge&type=UniqueJewel&language=en")
+            "https://poe.ninja/api/data/ItemOverview?league=Standard&type=UniqueJewel&language=en")
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
         data = raw_data.text
@@ -610,7 +610,7 @@ class CLJewelValues():
 
     def UniqueJewel(self):
         raw_data = requests.get(
-            "https://poe.ninja/api/data/ItemOverview?league=Scourge&type=ClusterJewel&language=en")
+            "https://poe.ninja/api/data/ItemOverview?league=Standard&type=ClusterJewel&language=en")
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")
         data = raw_data.text

@@ -6,7 +6,7 @@ import re
 global chaos_ex_ratio
 import sys
 
-response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Scourge&type=Currency")
+response_API = requests.get("https://poe.ninja/api/data/currencyoverview?league=Standard&type=Currency")
 data = response_API.text
 parse_json = json.loads(data)
 for i in parse_json["lines"]:
@@ -148,7 +148,7 @@ class SGValues:
         self.corrupted = corrupted
 
     def SG_Values(self):
-        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Scourge&type=SkillGem")
+        response_API = requests.get("https://poe.ninja/api/data/itemoverview?league=Standard&type=SkillGem")
         data = response_API.text
         os.chdir(
             r"C:\Users\emosc\PycharmProjects\GithubPushs\psychescape_price_fetcher\psychescape_price_fetcher\values")

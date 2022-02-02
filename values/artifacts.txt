@@ -1,4 +1,4 @@
- [{"name": "Burial Medallion", "exaltedValue": 0, "chaosValue": 7.0, "currType": "Chaos Orb"}]
-[{"name": "Exotic Coinage", "exaltedValue": 0, "chaosValue": 3.93, "currType": "Chaos Orb"}]
-[{"name": "Astragali", "exaltedValue": 0, "chaosValue": 3.51, "currType": "Chaos Orb"}]
+ [{"name": "Burial Medallion", "exaltedValue": 0, "chaosValue": 10.0, "currType": "Chaos Orb"}]
+[{"name": "Exotic Coinage", "exaltedValue": 0, "chaosValue": 4.0, "currType": "Chaos Orb"}]
+[{"name": "Astragali", "exaltedValue": 0, "chaosValue": 4.0, "currType": "Chaos Orb"}]
 [{"name": "Scrap Metal", "exaltedValue": 0, "chaosValue": 0.5, "currType": "Chaos Orb"}]

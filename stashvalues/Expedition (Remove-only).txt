@@ -1,0 +1,2 @@
+ [{"stacksize": 0, "note": "~price 0.5 chaos ", "x": 0, "y": 2, "inventoryID": "Stash1", "typeLine": "Scrap Metal", "sglvl": null, "sgqual": "+20%", "maptier": null}]
+[{"stacksize": 0, "note": "~price 4.0 chaos ", "x": 11, "y": 1, "inventoryID": "Stash1", "typeLine": "Astragali", "sglvl": null, "sgqual": "+20%", "maptier": null}]
