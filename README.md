@@ -35,9 +35,7 @@ options:
 
 Crafting,general and uniques are done! Fuck the unique flasks and prophecies! (they are gone anyways!)
 
-When I finish working with poe.ninja, I will work with PoE's PSApi (Public Stash) but I am waiting for OAuth key *since 4-5 days.
-
-Also, university sucks.
+University sucks.
 
 And also, entire code is based on 2 loops only JSON's variable changes time to time. I wrote everything to seperate classes just to easily add some features in the future. How many times I said in the future? Okay three.
   
