@@ -1,5 +1,7 @@
 # psychescape_price_fetcher
 
+FOLDER NAMES ARE SPECIFIC FOR MY COMPUTER, DONT DOWNLOAD OR RUN THIS IF YOU DONT WANT TO EDIT FOLDER PATHS.
+
 This is a simple poe.ninja price fetcher with JSON's, that I am doing for practical and learning purposes at APIs + datas. Icons folder has 1.200 icons that I fetched alongside with prices that can be used for OCR in the future.
 
 Current features: (  Additional informations are also fetched if necessary on processes. )
